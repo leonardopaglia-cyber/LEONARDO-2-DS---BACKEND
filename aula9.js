@@ -2,7 +2,7 @@
 const produtos = [
     {
         nome: "Lápis",
-        valor: "R$ 3,00",
+        valor: "R$ 2,00",
         quantidade: 100,
         peso: 10,
         marca: "AAAA",
@@ -10,7 +10,7 @@ const produtos = [
     },
     {
         nome: "Caneta",
-        valor: "R$ 20,00",
+        valor: "R$ 3,00",
         quantidade: 100,
         peso: 10,
         marca: "BBBB",
@@ -21,7 +21,7 @@ const produtos = [
         valor: "R$ 2,50",
         quantidade: 100,
         peso: 10,
-        marca: "BBBB",
+        marca: "CCCC",
         codigo: 1234
     },
     {
@@ -29,7 +29,7 @@ const produtos = [
         valor: "R$ 3,50",
         quantidade: 100,
         peso: 10,
-        marca: "BBBB",
+        marca: "DDDD",
         codigo: 1234
     },
     {
@@ -37,7 +37,7 @@ const produtos = [
         valor: "R$ 20,00",
         quantidade: 100,
         peso: 10,
-        marca: "BBBB",
+        marca: "EEEE",
         codigo: 1234
     },
     {
@@ -45,15 +45,49 @@ const produtos = [
         valor: "R$ 3,00",
         quantidade: 100,
         peso: 10,
-        marca: "BBBB",
+        marca: "FFFF",
         codigo: 1234
+    },
+    {
+       nome: "Cola",
+       valor: "R$ 3,00",
+       quantidade: 100,
+       peso: 10,
+       marca: "GGGG",
+       codigo: 1234
     },
     {
         nome: "Tesoura",
         valor: "R$ 8,00",
         quantidade: 100,
         peso: 10,
-        marca: "BBBB",
+        peso: 10,
+        marca: "HHHH",
         codigo: 1234
     },
+    {
+        nome: "Marca texto",
+        valor: "R$ 4,00",
+        quantidade: 100,
+        peso: 10,
+        marca: "IIII",
+        codigo: 1234
+    },
+    {
+        nome: "Bloco de Adesivo",
+        valor: "R$ 6,00",
+        quantidade: 100,
+        peso: 10,
+        marca: "JJJJ",
+        codigo: 1234
+    },    
 ]
+
+// Converter para JSON
+const dadosJSON = JSON.stringify(produtos);
+
+// Criar arquivo JSON
+const fs = require("fs")
+fs.writeFileSync("banco_de_dados.json", dadosJSON);
+
+console.log("Arquivo JSON criado com sucesso!");
