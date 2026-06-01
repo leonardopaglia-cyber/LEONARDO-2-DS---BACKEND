@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta CEP</title>
+</head>
+<body>
+
+    <h1>Pesquisar CEP</h1>
+
+    <input type="text" id="cep" placeholder="Digite o CEP">
+    <button onclick="pesquisarCEP()">Pesquisar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function pesquisarCEP() {
+            const cep = document.getElementById("cep").value;
+            const resultado = document.getElementById("resultado");
+
+            if (cep.trim() === "") {
+                resultado.textContent = "Por favor, informe um CEP.";
+                return;
+            }
+
+            resultado.textContent = `CEP informado: ${cep}`;
+        }
+    </script>
+
+</body>
+</html>
