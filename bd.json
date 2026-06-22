@@ -1,0 +1,16 @@
+[
+    {
+        "nome": "davi",
+        "data_nasc": "15/08/2010",
+        "cpf": 12345678900,
+        "email": "davano@gmail.com",
+        "senha": "dav123"
+    },
+    {
+        "nome": "Lucas",
+        "data_nasc": "12/05/2006",
+        "cpf": 12345678901,
+        "email": "lucano@gmail.com",
+        "senha": "lu123"
+    }
+]
