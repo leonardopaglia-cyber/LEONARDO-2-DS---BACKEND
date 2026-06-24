@@ -1,5 +1,7 @@
+// No terminal: 
 // npm init
 // npm i express
+// node index.js -> executa a API
 // instalar extensão RapidAPI Client no VSCode
 const express = require("express")
 const app = express()
@@ -37,19 +39,35 @@ app.get("/clientes/:cpf", (req, res) => {
     const cpf = req.params.cpf
     try {
         const bd = JSON.parse(fs.readFileSync("bd.json", "utf8"))
-        const clientes = bd.find((cliente) => cliente.cpf == cpf)
-        if(!cliente){
-            return req.status(404).json((erro: "Cliente não existe no BD!"))
+        const cliente = bd.find((cliente) => cliente.cpf == cpf)
+        if(!cliente) {
+            return res.status(404).json({erro: "Cliente não existe no BD!"})
         }
-        res.status(200).json({resposta: bd})
+        res.status(200).json({resposta: cliente})
     } catch (erro) {
         res.status(500).json({erro: erro.message})
     }
 })
 
+app.delete("/clientes/:cpf", (req, res) => {
+    const cpf = req.params.cpf
+    try {
+        const bd = JSON.parse(fs.readFileSync("bd.json", utf8))
+        const indiceCliente = bd.findIndex((cliente) => cliente.cpf == cpf)
+        if (indiceCliente == -1) {
+            return res.status(404).json({erro: "O cliente não existe"})
+    }
+    bd.splice(indiceCliente, 1)
+    res.status(200).json({resposta: "Cliente excluído com sucesso!"})
+    } catch (erro){
+    res.status(500).json({erro: erro.message})
+    }
+})
 
 app.listen(port, ()=>{
     console.log("API rodando na porta" + port)
 })
 
 // GET http://localhost:3000/clientes
+
+// TESTAR TODAS AS ROTAS: post, get geral e get cpf!
