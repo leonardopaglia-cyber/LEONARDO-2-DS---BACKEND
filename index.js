@@ -58,6 +58,7 @@ app.delete("/clientes/:cpf", (req, res) => {
             return res.status(404).json({erro: "O cliente não existe"})
     }
     bd.splice(indiceCliente, 1)
+    fs.writeFileSync("bd.json", JSON.stringify(bd), "utf-8")
     res.status(200).json({resposta: "Cliente excluído com sucesso!"})
     } catch (erro){
     res.status(500).json({erro: erro.message})
