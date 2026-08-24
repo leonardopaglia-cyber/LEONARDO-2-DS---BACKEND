@@ -23,11 +23,21 @@ app.post("/produto", (req, res) => {
         produtos.push(produto)
         fs.writeFileSync("produtos.json", JSON.stringifly(produtos), "utf8")
         res.status(201).json({ mensagem: "Produto cadastrado!" })
-    } catch (error) {
+    } catch (error) {produto
         res.status(500).json({ erro: error.message })
     }
 })
 
+app.get("/aula", (req, res) => {
+    try {
+        const aulas = JSON.parse(fs.readFileSync("aula.json", "utf8))
+        const Dia_Da_Semana = aulas.filter((aula) => aula.Dia_Da_Semana == "segunda")
+        const ordem_aula = Dia_Da_Semana.sort((a, b) => a.ordem_aula - b.ordem_aula)
+        res.status(200).json(ordena_preco)
+    } catch (error) {
+        res.status(500).json({erro: error.
+        
+    
 app.listen(port, () => {
     console.log("API rodando da porta " + port)
 })
