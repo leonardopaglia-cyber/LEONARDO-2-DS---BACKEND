@@ -37,7 +37,7 @@ app.get("/aula", (req, res) => {
     } catch (error) {
         res.status(500).json({erro: error.message})
     }
-})      
+})    
     
 app.listen(port, () => {
     console.log("API rodando da porta " + port)
