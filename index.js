@@ -35,8 +35,9 @@ app.get("/aula", (req, res) => {
         const ordem_aula = Dia_Da_Semana.sort((a, b) => a.ordem_aula - b.ordem_aula)
         res.status(200).json(ordena_preco)
     } catch (error) {
-        res.status(500).json({erro: error.
-        
+        res.status(500).json({erro: error.message})
+    }
+})      
     
 app.listen(port, () => {
     console.log("API rodando da porta " + port)
